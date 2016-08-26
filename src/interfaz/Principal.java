@@ -21,6 +21,14 @@ public class Principal extends javax.swing.JFrame {
     
     public Principal() {
         initComponents();
+        cmdCrear.setEnabled(true);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAutom.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        
+        
+        
     }
 
     /**
@@ -52,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(51, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos iniciales"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setText("longitud :");
@@ -131,16 +139,17 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(460, 399));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
@@ -158,6 +167,12 @@ public class Principal extends javax.swing.JFrame {
             v = new double [Longitud];
             JOptionPane.showMessageDialog(this,"vector creado exitosamente");
                 
+             cmdCrear.setEnabled(false);
+            cmdLlenarManual.setEnabled(true);
+            cmdLlenarAutom.setEnabled(true);
+            cmdMostrar.setEnabled(false);
+            cmdBorrar.setEnabled(true);
+            txtLongitud.setEditable(false);
                 
             
         }    
@@ -180,36 +195,56 @@ public class Principal extends javax.swing.JFrame {
             v[i] = n;
             
         }
-        
+            cmdCrear.setEnabled(false);
+            cmdLlenarManual.setEnabled(false);
+            cmdLlenarAutom.setEnabled(false);
+            cmdMostrar.setEnabled(true);
+            cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenarManualActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
         for (int i = 0; i < v.length; i++) {
             txtResultado.append(v[i]+"\n");
         }
-        
+            cmdCrear.setEnabled(false);
+            cmdLlenarManual.setEnabled(false);
+            cmdLlenarAutom.setEnabled(false);
+            cmdMostrar.setEnabled(false);
+            cmdBorrar.setEnabled(true);
         
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
-      txtLongitud.setText("");
-      txtResultado.setText("");
-      v = null;
-      txtLongitud.requestFocusInWindow();
+
+        txtLongitud.setText("");
+        txtResultado.setText("");
+        v = null;
+        txtLongitud.requestFocusInWindow();
         
+        cmdCrear.setEnabled(true);
+        cmdLlenarManual.setEnabled(false);
+        cmdLlenarAutom.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        txtLongitud.setEditable(true);
+      
         
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmdLlenarAutomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarAutomActionPerformed
         double n;
         for (int i = 0; i < v.length; i++) {
-            //n = (int)(Math.random()*50 + 1);
-            n=i+1;
+            n = (int)(Math.random()*50 + 1);
+            //n=i+1;
             v[i] = n;
             
         }
         JOptionPane.showMessageDialog(this, "Vector llenado correctamente");
-        
+            cmdCrear.setEnabled(false);
+            cmdLlenarManual.setEnabled(false);
+            cmdLlenarAutom.setEnabled(false);
+            cmdMostrar.setEnabled(true);
+            cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenarAutomActionPerformed
 
     /**
