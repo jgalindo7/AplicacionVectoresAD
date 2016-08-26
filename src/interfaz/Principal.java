@@ -190,9 +190,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenarManualActionPerformed
         double n;
+        int sw;
         for (int i = 0; i < v.length; i++) {
+            do{
+                sw=1;
+            try{    
             n = Double.parseDouble(JOptionPane.showInputDialog(this,"digite el elemento en la posicion : " +i));
             v[i] = n;
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this,"Digite un numero valido","Error",JOptionPane.ERROR_MESSAGE);
+                sw=0;
+            }catch(NullPointerException e){
+                JOptionPane.showMessageDialog(this, "no puedes salir coño de tu madre","Error",JOptionPane.ERROR_MESSAGE);
+                sw=0;
+            }
+            
+            }while(sw==0);
             
         }
             cmdCrear.setEnabled(false);
